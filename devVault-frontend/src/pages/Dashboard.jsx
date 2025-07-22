@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Navbar from '../components/Navbar';
+import './Dashboard.css';
 
 function Dashboard() {
   const [tasks, setTasks] = useState([]);
@@ -46,7 +48,7 @@ function Dashboard() {
       setDescription('');
       fetchTasks(); // Refresh the list after creating
     } catch (err) {
-      setMessage('❌ Failed to create task');
+      setMessage('Failed to create task');
     }
   };
 
@@ -54,39 +56,39 @@ function Dashboard() {
     fetchTasks();
   }, []);
 
-  return (
-    <div>
-      <h2>Dashboard</h2>
+    return (
+      <div>
+        <Navbar />
+        <div className="dashboard-container">
+          <h2>Dashboard</h2>
+          <form onSubmit={createTask}>
+            <input
+              type="text"
+              placeholder="Task Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Task Description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <button type="submit">Add Task</button>
+          </form>
 
-      <form onSubmit={createTask}>
-        <input
-          type="text"
-          placeholder="Task Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="Task Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <br />
-        <button type="submit">Add Task</button>
-      </form>
+          {message && <p>{message}</p>}
 
-      {message && <p>{message}</p>}
-
-      <ul>
-        {tasks.map((task) => (
-          <li key={task._id}>
-            <strong>{task.title}</strong>: {task.description}
-          </li>
-        ))}
-      </ul>
-    </div>
+          <ul>
+            {tasks.map((task) => (
+              <li key={task._id}>
+                <strong>{task.title}</strong>: {task.description}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
   );
 }
 

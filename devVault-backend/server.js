@@ -11,7 +11,10 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/tasks', require('./routes/taskRoutes'));
-
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+}));
 
 app.get('/',(req,res)=>{
     res.send("devVault is running..");

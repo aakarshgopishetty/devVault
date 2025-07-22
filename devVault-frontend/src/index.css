@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1F2937; /* same as colors.background */
+  color: #F9FAFB;            /* same as colors.text */
+  font-family: sans-serif;
+  min-height: 100vh;
+}
