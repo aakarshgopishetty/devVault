@@ -21,21 +21,18 @@
 ## 🧰 Tech Stack
 
 ### Frontend
-
 - **React.js** - Modern UI library
 - **Vite** - Lightning-fast build tool
 - **Axios** - HTTP client for API calls
 - **React Router** - Client-side routing
 
 ### Backend
-
 - **Node.js** - Runtime environment
 - **Express.js** - Web application framework
 - **MongoDB** - NoSQL database
 - **Mongoose** - MongoDB object modeling
 
 ### Security & Authentication
-
 - **JWT** - JSON Web Tokens for authentication
 - **bcrypt** - Password hashing
 - **CORS** - Cross-origin resource sharing
@@ -45,27 +42,23 @@
 ## 📦 Installation & Setup
 
 ### Prerequisites
-
 - Node.js (v14 or higher)
 - MongoDB Atlas account or local MongoDB installation
 - Git
 
 ### 1. Clone the Repository
-
 ```bash
 git clone https://github.com/your-username/devVault.git
 cd devVault
 ```
 
 ### 2. Backend Setup
-
 ```bash
 cd devVault-backend
 npm install
 ```
 
 Create a `.env` file in the backend directory:
-
 ```env
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
@@ -74,32 +67,27 @@ NODE_ENV=development
 ```
 
 Start the backend server:
-
 ```bash
 npm start
 ```
 
 ### 3. Frontend Setup
-
 ```bash
 cd ../devVault-frontend
 npm install
 ```
 
 Create a `.env` file in the frontend directory (if needed):
-
 ```env
 VITE_API_URL=http://localhost:5000
 ```
 
 Start the frontend development server:
-
 ```bash
 npm run dev
 ```
 
 The application should now be running at:
-
 - Frontend: `http://localhost:5173`
 - Backend API: `http://localhost:5000`
 
@@ -127,7 +115,6 @@ The application should now be running at:
 ### Example API Usage
 
 **Register a new user:**
-
 ```javascript
 POST /api/users/register
 Content-Type: application/json
@@ -140,7 +127,6 @@ Content-Type: application/json
 ```
 
 **Create a new task:**
-
 ```javascript
 POST /api/tasks
 Authorization: Bearer YOUR_JWT_TOKEN
@@ -159,7 +145,6 @@ Content-Type: application/json
 ## 📁 Project Structure
 
 ```
-
 devVault/
 ├── devVault-backend/
 │   ├── config/
@@ -196,14 +181,12 @@ devVault/
 ## 🧪 Testing
 
 ### Backend Testing
-
 ```bash
 cd devVault-backend
 npm test
 ```
 
 ### Frontend Testing
-
 ```bash
 cd devVault-frontend
 npm run test
@@ -214,21 +197,17 @@ npm run test
 ## 🚀 Deployment
 
 ### Backend Deployment (Railway/Render)
-
 1. Create account on Railway or Render
 2. Connect your GitHub repository
 3. Set environment variables in the platform dashboard
 4. Deploy with one click
 
 ### Frontend Deployment (Vercel/Netlify)
-
 1. Build the production version:
-
 ```bash
 cd devVault-frontend
 npm run build
 ```
-
 2. Deploy the `dist` folder to Vercel or Netlify
 3. Update API URL in environment variables
 
@@ -249,32 +228,18 @@ npm run build
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
 ## 📝 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is proprietary and confidential. All rights reserved by Aakarsh Gopishetty.
 
 ---
 
 ## 👨‍💻 Author
 
 **Aakarsh Gopishetty**
-
 - 💼 Full Stack Developer | AI & Cybersecurity Enthusiast
 - 📧 Email: gopishettyaakarsh@gmail.com
-- 🔗 LinkedIn: [Connect with me](https://linkedin.com/in/your-profile)
-- 🌐 Portfolio: [your-portfolio-url.com](https://your-portfolio-url.com)
+- 🔗 LinkedIn: [Connect with me](https://www.linkedin.com/in/aakarsh-gopishetty-863b99280/)
 
 ---
 
@@ -283,16 +248,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - Thanks to the MERN stack community for excellent documentation
 - Inspired by modern task management applications
 - Special thanks to contributors and beta testers
-
----
-
-## 📞 Support
-
-If you encounter any issues or have questions, please:
-
-1. Check the [Issues](https://github.com/aakarshgopisheety/devVault/issues) page
-2. Create a new issue if your problem isn't already reported
-3. Reach out via email for urgent matters
 
 ---
 
