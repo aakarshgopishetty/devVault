@@ -1,13 +1,14 @@
 :root {
-  --primary: #4F46E5;
-  --secondary: #6366F1;
-  --background: #1F2937;
-  --surface: #374151;
-  --text: #F9FAFB;
-  --accent: #10B981;
-  --danger: #EF4444;
-  --muted: #9CA3AF;
+  --primary: #b1e5f2;      /* Non-Photo Blue */
+  --secondary: #a6a6a8;    /* French Gray */
+  --background: #e8e9f3;   /* Ghost White */
+  --surface: #ffffff;      /* White surface */
+  --text: #272635;         /* Raisin Black */
+  --accent: #cecece;       /* Silver */
+  --danger: #6c5ae2;       /* Red for errors */
+  --muted: #a6a6a8;        /* Gray muted text */
 }
+
 
 body {
   font-family: 'Inter', sans-serif;

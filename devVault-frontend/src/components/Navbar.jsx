@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import colors from '../styles/colors';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -34,8 +35,8 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    background: '#504de9ff',
-    color: '#fff',
+    background: colors.primary,
+    color: colors.text,
     padding: '12px 24px',
     boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
   },
@@ -49,15 +50,16 @@ const styles = {
     gap: '15px',
   },
   link: {
-    color: '#fff',
+    color: colors.surface,
     textDecoration: 'none',
     padding: '6px 12px',
     borderRadius: '4px',
     transition: 'background 0.2s',
+    backgroundColor: 'transparent',
   },
   button: {
-    backgroundColor: '#ff4d4d',
-    color: '#fff',
+    backgroundColor: colors.danger,
+    color: colors.text,
     border: 'none',
     padding: '6px 12px',
     borderRadius: '4px',
