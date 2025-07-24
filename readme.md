@@ -1,254 +1,198 @@
-# 🛠️ DevVault
+# 🚀 DevVault
 
-**DevVault** is a full-stack MERN (MongoDB, Express.js, React, Node.js) application for task and project management. It provides secure user authentication, personal dashboards, and comprehensive task management features.
+**Your Personal Developer Productivity Hub**
 
-> 🔒 Built with security, scalability, and modern development practices in mind.
-
----
-
-## 🚀 Features
-
-- 🧑‍💻 **User Authentication**: Secure registration & login with JWT
-- ✅ **Task Management**: Create, read, update, and delete tasks
-- 🔐 **Protected Routes**: Token-based authentication for secure access
-- 📱 **Responsive Design**: Works seamlessly on desktop and mobile
-- 🌐 **RESTful API**: Clean and documented API endpoints
-- 💾 **Persistent Storage**: MongoDB database integration
-- ⚡ **Fast Development**: Built with Vite for optimal performance
+DevVault is a full-stack MERN application designed to help developers **securely manage and organize their work**. Whether you're tracking tasks, managing project workflows, or need a clean dashboard to stay focused, DevVault keeps your developer life centralized and organized.
 
 ---
 
-## 🧰 Tech Stack
+## ✨ Features
+
+### 🔧 Core Functionality
+
+- **📝 Task Manager**
+  - Create, edit, and delete personal tasks
+  - Track progress with intuitive status updates (Pending → In Progress → Completed)
+  - Priority levels and due date management
+
+- **📁 Project Workspace**
+  - Organize work under specific projects and modules
+  - Attach notes and documentation to projects
+  - Visual project progress tracking
+
+- **🔐 Secure Authentication**
+  - JWT-based secure login and registration
+  - Private, user-specific data vaults
+  - Password encryption with bcrypt
+
+- **📊 Developer Dashboard**
+  - Unified view of tasks, projects, and productivity metrics
+  - Quick access to recent work and upcoming deadlines
+  - Customizable widget layout
+
+- **🎨 Modern UI/UX**
+  - Responsive design that works on all devices
+  - Custom theming with CSS variables
+  - Clean, developer-focused interface
+
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
+
 - **React.js** - Modern UI library
-- **Vite** - Lightning-fast build tool
-- **Axios** - HTTP client for API calls
+- **Axios** - HTTP client for API communication
 - **React Router** - Client-side routing
+- **CSS3** with custom properties for theming
 
 ### Backend
-- **Node.js** - Runtime environment
+
+- **Node.js** - JavaScript runtime
 - **Express.js** - Web application framework
 - **MongoDB** - NoSQL database
 - **Mongoose** - MongoDB object modeling
-
-### Security & Authentication
-- **JWT** - JSON Web Tokens for authentication
-- **bcrypt** - Password hashing
-- **CORS** - Cross-origin resource sharing
+- **JWT** - Secure authentication tokens
+- **Bcrypt** - Password hashing
 
 ---
 
-## 📦 Installation & Setup
+## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js (v14 or higher)
-- MongoDB Atlas account or local MongoDB installation
-- Git
+- MongoDB (local or cloud instance)
+- npm or yarn package manager
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/your-username/devVault.git
-cd devVault
-```
+### Installation
 
-### 2. Backend Setup
-```bash
-cd devVault-backend
-npm install
-```
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/aakarshgopishetty/devvault.git
+   cd devvault
+   ```
+
+2. **Backend Setup**
+
+   ```bash
+   cd devvault-backend
+   npm install
+   
+   # Create .env file with your configuration
+   cp .env.example .env
+   
+   # Start the development server
+   npm run dev
+   ```
+
+3. **Frontend Setup**
+
+   ```bash
+   cd devvault-frontend
+   npm install
+   
+   # Start the React development server
+   npm run dev
+   ```
+
+4. **Access the application**
+   - Frontend: `http://localhost:5187`
+   - Backend API: `http://localhost:5000`
+
+### Environment Variables
 
 Create a `.env` file in the backend directory:
+
 ```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_super_secret_jwt_key
 NODE_ENV=development
-```
-
-Start the backend server:
-```bash
-npm start
-```
-
-### 3. Frontend Setup
-```bash
-cd ../devVault-frontend
-npm install
-```
-
-Create a `.env` file in the frontend directory (if needed):
-```env
-VITE_API_URL=http://localhost:5000
-```
-
-Start the frontend development server:
-```bash
-npm run dev
-```
-
-The application should now be running at:
-- Frontend: `http://localhost:5173`
-- Backend API: `http://localhost:5000`
-
----
-
-## 🔗 API Documentation
-
-### Authentication Endpoints
-
-| Route | Method | Protected | Description |
-|-------|---------|-----------|-------------|
-| `/api/users/register` | POST | ❌ | Register a new user |
-| `/api/users/login` | POST | ❌ | Login and receive JWT token |
-| `/api/users/profile` | GET | ✅ | Get user profile information |
-
-### Task Management Endpoints
-
-| Route | Method | Protected | Description |
-|-------|---------|-----------|-------------|
-| `/api/tasks` | GET | ✅ | Fetch all user tasks |
-| `/api/tasks` | POST | ✅ | Create a new task |
-| `/api/tasks/:id` | PUT | ✅ | Update a specific task |
-| `/api/tasks/:id` | DELETE | ✅ | Delete a specific task |
-
-### Example API Usage
-
-**Register a new user:**
-```javascript
-POST /api/users/register
-Content-Type: application/json
-
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "securepassword123"
-}
-```
-
-**Create a new task:**
-```javascript
-POST /api/tasks
-Authorization: Bearer YOUR_JWT_TOKEN
-Content-Type: application/json
-
-{
-  "title": "Complete project documentation",
-  "description": "Write comprehensive README and API docs",
-  "priority": "high",
-  "status": "pending"
-}
+PORT=5000
+MONGODB_URI=mongodb://localhost:27017/devvault
+JWT_SECRET=your-secret-key-here
+JWT_EXPIRE=7d
 ```
 
 ---
 
-## 📁 Project Structure
+## 🗂️ Project Structure
 
 ```
-devVault/
-├── devVault-backend/
-│   ├── config/
-│   │   └── db.js
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   └── taskController.js
-│   ├── middleware/
-│   │   └── authMiddleware.js
-│   ├── models/
-│   │   ├── User.js
-│   │   └── Task.js
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   └── taskRoutes.js
-│   ├── .env
-│   ├── server.js
-│   └── package.json
-├── devVault-frontend/
+
+devvault/
+├── devvault-frontend/
 │   ├── src/
 │   │   ├── components/
 │   │   ├── pages/
 │   │   ├── services/
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   ├── public/
-│   ├── index.html
+│   │   └── styles/
+│   └── package.json
+├── devvault-backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
 │   └── package.json
 └── README.md
 ```
 
 ---
 
-## 🧪 Testing
+## 🛣️ Roadmap
 
-### Backend Testing
-```bash
-cd devVault-backend
-npm test
-```
+### 🔮 Upcoming Features
 
-### Frontend Testing
-```bash
-cd devVault-frontend
-npm run test
-```
-
----
-
-## 🚀 Deployment
-
-### Backend Deployment (Railway/Render)
-1. Create account on Railway or Render
-2. Connect your GitHub repository
-3. Set environment variables in the platform dashboard
-4. Deploy with one click
-
-### Frontend Deployment (Vercel/Netlify)
-1. Build the production version:
-```bash
-cd devVault-frontend
-npm run build
-```
-2. Deploy the `dist` folder to Vercel or Netlify
-3. Update API URL in environment variables
+- **🧠 Code Snippet Manager** - Store and organize reusable code snippets
+- **📚 Knowledge Base** - Personal developer documentation system
+- **🔑 API Token Manager** - Securely store and manage API keys
+- **📅 Developer Calendar** - Schedule and track development milestones
+- **🔌 Plugin System** - Extensible architecture for custom integrations
+- **📈 Analytics Dashboard** - Productivity insights and time tracking
+- **🌙 Dark/Light Mode** - Enhanced theming options
+- **📱 Mobile App** - React Native companion app
 
 ---
 
-## ✨ Future Enhancements
+## 🤝 Contributing
 
-- [ ] 📝 Advanced task editing with rich text editor
-- [ ] 📅 Due dates and calendar integration
-- [ ] 🏷️ Task categories and tags
-- [ ] 📊 Analytics and progress tracking dashboard
-- [ ] 👥 Team collaboration features
-- [ ] 🔔 Real-time notifications
-- [ ] 📱 Mobile app (React Native)
-- [ ] 🌙 Dark mode theme
-- [ ] 📈 Data export functionality
-- [ ] 🔍 Advanced search and filtering
+We welcome contributions! Here's how you can help:
 
----
+1. **Fork the repository**
+2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
+3. **Commit your changes** (`git commit -m 'Add amazing feature'`)
+4. **Push to the branch** (`git push origin feature/amazing-feature`)
+5. **Open a Pull Request**
 
-## 📝 License
+### Development Guidelines
 
-This project is proprietary and confidential. All rights reserved by Aakarsh Gopishetty.
+- Follow existing code style and conventions
+- Write clear commit messages
+- Add tests for new features
+- Update documentation as needed
 
 ---
 
-## 👨‍💻 Author
+## 📄 License
 
-**Aakarsh Gopishetty**
-- 💼 Full Stack Developer | AI & Cybersecurity Enthusiast
-- 📧 Email: gopishettyaakarsh@gmail.com
-- 🔗 LinkedIn: [Connect with me](https://www.linkedin.com/in/aakarsh-gopishetty-863b99280/)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+## 📞 Support & Contact
 
-- Thanks to the MERN stack community for excellent documentation
-- Inspired by modern task management applications
-- Special thanks to contributors and beta testers
+- **Issues**: [GitHub Issues](https://github.com/your-username/devvault/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/your-username/devvault/discussions)
+- **Email**: gopishettyaakarsh@gmail.com
 
 ---
 
-**⭐ Star this repository if you found it helpful!**
+## 🌟 Show Your Support
+
+If DevVault helps you stay organized and productive, please consider:
+
+- ⭐ Starring the repository
+- 🐛 Reporting bugs
+- 💡 Suggesting new features
+- 🤝 Contributing code
+
+---
