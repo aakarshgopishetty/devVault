@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
+import CalendarWidget from '../components/CalenderWidget';
 import './Dashboard.css';
 
 function Dashboard() {
@@ -108,63 +109,68 @@ function Dashboard() {
       <Navbar />
       <div className="dashboard-container">
         <h2>Dashboard</h2>
-        <form onSubmit={createTask}>
-          <input
-            type="text"
-            placeholder="Task Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Task Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <button type="submit">Add Task</button>
-        </form>
+          <div className="dashboard-content">
+            <form onSubmit={createTask}>
+              <input
+                type="text"
+                placeholder="Task Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Task Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <button type="submit">Add Task</button>
+            </form>
 
-        {message && <p>{message}</p>}
+            {message && <p>{message}</p>}
 
-        <ul>
-          {tasks.map((task) => (
-            <li key={task._id} className="task-item">
-              {editingTaskId === task._id ? (
-                <div className="task-edit">
-                  <input
-                    type="text"
-                    value={editedTitle}
-                    onChange={(e) => setEditedTitle(e.target.value)}
-                    className="task-input"
-                  />
-                  <input
-                    type="text"
-                    value={editedDescription}
-                    onChange={(e) => setEditedDescription(e.target.value)}
-                    className="task-input"
-                  />
-                  <div className="task-buttons">
-                    <button onClick={() => saveTask(task._id)} className="btn primary">Save</button>
-                    <button onClick={() => setEditingTaskId(null)} className="btn">Cancel</button>
-                  </div>
-                </div>
-              ) : (
-                <>
-                  <div className="task-details">
-                    <strong>{task.title}</strong>
-                    <p>{task.description}</p>
-                  </div>
-                  <div className="task-buttons">
-                    <button onClick={() => startEdit(task)} className="btn primary">Edit</button>
-                    <button onClick={() => deleteTask(task._id)} className="btn danger">Delete</button>
-                  </div>
-                </>
-              )}
-            </li>
-          ))}
-        </ul>
+            <ul>
+              {tasks.map((task) => (
+                <li key={task._id} className="task-item">
+                  {editingTaskId === task._id ? (
+                    <div className="task-edit">
+                      <input
+                        type="text"
+                        value={editedTitle}
+                        onChange={(e) => setEditedTitle(e.target.value)}
+                        className="task-input"
+                      />
+                      <input
+                        type="text"
+                        value={editedDescription}
+                        onChange={(e) => setEditedDescription(e.target.value)}
+                        className="task-input"
+                      />
+                      <div className="task-buttons">
+                        <button onClick={() => saveTask(task._id)} className="btn primary">Save</button>
+                        <button onClick={() => setEditingTaskId(null)} className="btn">Cancel</button>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="task-details">
+                        <strong>{task.title}</strong>
+                        <p>{task.description}</p>
+                      </div>
+                      <div className="task-buttons">
+                        <button onClick={() => startEdit(task)} className="btn primary">Edit</button>
+                        <button onClick={() => deleteTask(task._id)} className="btn danger">Delete</button>
+                      </div>
+                    </>
+                  )}
+                </li>
+              ))}
+            </ul>
+        </div>
       </div>
+      <div className="dashboard-sidebar">
+          <CalendarWidget tasks={tasks} />
+        </div>
     </div>
   );
 }

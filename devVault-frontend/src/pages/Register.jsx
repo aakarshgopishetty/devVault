@@ -15,9 +15,7 @@ function Register() {
     e.preventDefault();
     try {
       const res = await axios.post('http://localhost:5000/api/users/register', {
-        name,
-        email,
-        password
+        name, email, password
       });
 
       localStorage.setItem('token', res.data.token);
@@ -32,11 +30,11 @@ function Register() {
     <div style={{ background: colors.background, minHeight: '100vh', color: colors.text }}>
       <Navbar />
       <div style={styles.container}>
-        <h2 style={styles.heading}>Register</h2>
+        <h2 style={styles.heading}>Create Your Account</h2>
         <form onSubmit={handleRegister} style={styles.form}>
           <input
             type="text"
-            placeholder="Name"
+            placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -44,7 +42,7 @@ function Register() {
           />
           <input
             type="email"
-            placeholder="Email"
+            placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -69,11 +67,11 @@ function Register() {
 const styles = {
   container: {
     maxWidth: '400px',
-    margin: '40px auto',
-    padding: '20px',
-    background: '#2D3748',
-    borderRadius: '8px',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+    margin: '60px auto',
+    padding: '24px',
+    background: colors.surface,
+    borderRadius: '10px',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
   },
   heading: {
     textAlign: 'center',
@@ -83,26 +81,29 @@ const styles = {
   form: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '15px',
+    gap: '14px',
   },
   input: {
-    padding: '10px',
-    borderRadius: '4px',
-    border: '1px solid #444',
-    background: colors.surface,
+    padding: '12px',
+    borderRadius: '6px',
+    border: `1px solid ${colors.accent}`,
+    background: '#fdfdfd',
     color: colors.text,
+    fontSize: '15px',
   },
   button: {
     background: colors.primary,
-    color: colors.text,
-    padding: '10px',
+    color: '#fff',
+    padding: '12px',
     border: 'none',
-    borderRadius: '4px',
+    borderRadius: '6px',
     cursor: 'pointer',
+    fontWeight: 'bold',
+    fontSize: '15px',
   },
   message: {
-    marginTop: '10px',
-    color: colors.accent,
+    marginTop: '12px',
+    color: colors.danger,
     textAlign: 'center',
   },
 };

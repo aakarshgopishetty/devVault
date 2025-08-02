@@ -14,31 +14,26 @@ function Login() {
     e.preventDefault();
     try {
       const res = await axios.post('http://localhost:5000/api/users/login', {
-        email,
-        password
-      },{
-      headers: {
-        'Content-Type': 'application/json'
-        }
+        email, password
       });
 
       localStorage.setItem('token', res.data.token);
-      setMessage("Logged in successfully!");
+      setMessage("Login successful!");
       navigate('/dashboard');
     } catch (err) {
-      setMessage("Invalid email or password");
+      setMessage("Invalid email or password.");
     }
   };
 
   return (
-    <>
+    <div style={{ background: colors.background, minHeight: '100vh', color: colors.text }}>
       <Navbar />
       <div style={styles.container}>
         <form onSubmit={handleLogin} style={styles.form}>
-          <h2 style={styles.heading}>Login</h2>
+          <h2 style={styles.heading}>Welcome Back</h2>
           <input
             type="email"
-            placeholder="Email"
+            placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -56,7 +51,7 @@ function Login() {
           {message && <p style={styles.message}>{message}</p>}
         </form>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -64,17 +59,17 @@ const styles = {
   container: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: '100px',
+    marginTop: '80px',
   },
   form: {
-    background: colors.backgroundLight,
-    padding: '40px',
+    background: colors.surface,
+    padding: '32px',
     borderRadius: '12px',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-    minWidth: '300px',
+    boxShadow: '0 6px 18px rgba(0, 0, 0, 0.1)',
+    minWidth: '320px',
   },
   heading: {
-    marginBottom: '20px',
+    marginBottom: '24px',
     color: colors.primary,
     textAlign: 'center',
   },
@@ -83,10 +78,10 @@ const styles = {
     padding: '12px',
     marginBottom: '16px',
     borderRadius: '8px',
-    background: `${colors.accent}`,
-    border: `1px solid ${colors.bordor}`,
+    background: '#fdfdfd',
+    border: `1px solid ${colors.accent}`,
     outline: 'none',
-    fontSize: '14px',
+    fontSize: '15px',
   },
   button: {
     width: '100%',
@@ -99,7 +94,7 @@ const styles = {
     fontWeight: 'bold',
   },
   message: {
-    marginTop: '12px',
+    marginTop: '14px',
     textAlign: 'center',
     color: colors.danger,
   }
